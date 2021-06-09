@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using HtmlAgilityPack;
+using System.IO;
+
 
 namespace LAB4
 {
@@ -58,7 +60,54 @@ namespace LAB4
 
         private void downPage_Click(object sender, EventArgs e)
         {
+            SaveFileDialog sfd = new SaveFileDialog();
+            if (sfd.ShowDialog() == DialogResult.Cancel)
+            {
+                MessageBox.Show("User pressed Cancel!!!");
+            }
+            else
+            {
+                string filePath = sfd.FileName;
+                DownloadWebPage(filePath);
+            }
+        }
+
+        void DownloadWebPage(string filepath)
+        {
+            WebClient myClient = new WebClient();
+            string folderHTMLFile = Path.GetDirectoryName(filepath);
+            Stream response = myClient.OpenRead(URL);
+            if (filepath != null)
+            {
+                myClient.DownloadFile(new Uri(URL), filepath);
+            }
+
+            HtmlAgilityPack.HtmlDocument document = new HtmlAgilityPack.HtmlDocument();
+            document.Load(response);
+            HtmlNodeCollection nodesimg = document.DocumentNode.SelectNodes("//img");
+            string imageFolder = Path.Combine(@"" + folderHTMLFile, @"Images\");
             
+            if (nodesimg != null)
+            {
+                if (!Directory.Exists(imageFolder))
+                {
+                    Directory.CreateDirectory(imageFolder);
+                }
+                foreach(HtmlNode node in nodesimg)
+                {
+                    WebClient client = new WebClient();
+                    string sourceImg = Path.GetFileName(node.GetAttributeValue("src", ""));
+                    string fileName = Path.Combine(@"" + folderHTMLFile, @"Images\", sourceImg);
+                    string fileDown = URL + node.GetAttributeValue("src", "");
+                    client.DownloadFile(fileDown, fileName);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Webpage doesn't contain any image", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            response.Close();
         }
     }
 }

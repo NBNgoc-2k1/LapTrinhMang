@@ -19,7 +19,8 @@ namespace LAB4
 
         private void BAI1_Click(object sender, EventArgs e)
         {
-
+            BAI1 ex1 = new BAI1();
+            ex1.Show();
         }
 
         private void BAI2_Click(object sender, EventArgs e)
@@ -30,7 +31,8 @@ namespace LAB4
 
         private void BAI3_Click(object sender, EventArgs e)
         {
-
+            BAI3 ex3 = new BAI3();
+            ex3.Show();
         }
 
         private void BAI4_Click(object sender, EventArgs e)

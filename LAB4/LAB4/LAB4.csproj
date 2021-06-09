@@ -87,8 +87,14 @@
     <Compile Include="ViewSourcePage.Designer.cs">
       <DependentUpon>ViewSourcePage.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BAI1.resx">
+      <DependentUpon>BAI1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BAI2.resx">
       <DependentUpon>BAI2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BAI3.resx">
+      <DependentUpon>BAI3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BAI4.resx">
       <DependentUpon>BAI4.cs</DependentUpon>

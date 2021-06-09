@@ -15,3 +15,5 @@ C:\NetworkProgramming\LapTrinhMang\LAB4\LAB4\obj\Debug\LAB4.csproj.CopyComplete
 C:\NetworkProgramming\LapTrinhMang\LAB4\LAB4\bin\Debug\HtmlAgilityPack.dll
 C:\NetworkProgramming\LapTrinhMang\LAB4\LAB4\bin\Debug\HtmlAgilityPack.pdb
 C:\NetworkProgramming\LapTrinhMang\LAB4\LAB4\bin\Debug\HtmlAgilityPack.xml
+C:\NetworkProgramming\LapTrinhMang\LAB4\LAB4\obj\Debug\LAB4.BAI3.resources
+C:\NetworkProgramming\LapTrinhMang\LAB4\LAB4\obj\Debug\LAB4.BAI1.resources
